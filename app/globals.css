@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden; 
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Hide horizontal scrollbar for the nav rail */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome/Safari */
+}
+
+@layer components {
+  .btn {
+    @apply rounded-[20px] relative border border-white px-5 py-3 text-lg text-white transition;
+  }
+  .btn::after {
+    content: "";
+    @apply absolute inset-0 rounded-[20px] bg-white opacity-0 transition;
+  }
+  .btn:hover::after {
+    @apply opacity-20;
+  }
+}
+/* Tall tablet de-congestion: width >= 600px AND height >= 1000px */
+@media (min-width: 600px) and (min-height: 1000px) {
+  .tablet-tall .hero-wrap {
+    /* Slightly reduce density and keep content narrower */
+    max-width: 680px;
+    padding-bottom: 6rem;   /* more breathing room below text */
+    gap: 1rem;
+  }
+
+  .tablet-tall .hero-title {
+    font-size: 44px;        /* was 50px */
+    line-height: 1.15;
+  }
+
+  .tablet-tall .hero-sub {
+    font-size: 26px;        /* was 28–32px */
+    line-height: 1.25;
+    display: inline-block;
+    margin-top: 0.25rem;
+  }
+
+  /* Keep the horse nicely on the cliff without crowding the center */
+  .tablet-tall .horse {
+    right: 52px;            /* small nudge left */
+    top: 10.5rem;           /* slight drop */
+    width: 280px;           /* smaller so it doesn't push into text */
+    height: auto;
+  }
+
+  .tablet-tall .cliff {
+    width: 420px;           /* slightly smaller than 480px */
+    height: auto;
+  }
+
+  /* If the desktop CTA row is visible on your layout, soften it a bit */
+  .tablet-tall .cta-row a {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
