@@ -7,7 +7,7 @@ import { Projects } from "@/constants";
 const Page = () => {
   return (
     <div
-      style={{ backgroundImage: "url('/mountains.jpg')" }} // ✅ ensure it's in public/
+      style={{ backgroundImage: "url('/Mountains.jpg')" }} // ✅ ensure it's in public/
       className="w-screen min-h-screen bg-center bg-cover p-5 overflow-auto"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-[90%] mx-auto">
