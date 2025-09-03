@@ -7,7 +7,7 @@ import { Projects } from "@/constants";
 const Page = () => {
   return (
     <div
-      style={{ backgroundImage: "url(/mountains.jpg)" }}
+      style={{ backgroundImage: "url('/mountains.jpg')" }} // ✅ ensure it's in public/
       className="w-screen min-h-screen bg-center bg-cover p-5 overflow-auto"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-[90%] mx-auto">
@@ -21,7 +21,7 @@ const Page = () => {
           >
             <div className="relative cursor-pointer overflow-hidden rounded-xl shadow-lg h-64">
               <img
-                src={project.src}
+                src={project.src} // ✅ make sure project.src looks like "/projects/proj1.png"
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />

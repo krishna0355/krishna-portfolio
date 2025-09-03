@@ -23,8 +23,12 @@ const ProjectCard = ({ image, title, text }: Props) => {
       >
         {/* Front */}
         <div
-          style={{ backgroundImage: `url(${image})` }}
-          className="absolute w-full h-full bg-cover bg-center rounded-lg"
+          style={{
+            backgroundImage: `url('${image}')`, // ✅ must be like "/projects/proj1.png"
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="absolute w-full h-full rounded-lg"
         >
           <div className="absolute inset-0 bg-black opacity-0 hover:opacity-40 transition-opacity rounded-md" />
           <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 hover:opacity-100">
@@ -34,8 +38,12 @@ const ProjectCard = ({ image, title, text }: Props) => {
 
         {/* Back */}
         <div
-          style={{ backgroundImage: `url(${image})` }}
-          className="absolute w-full h-full bg-cover bg-center rounded-lg rotate-y-180"
+          style={{
+            backgroundImage: `url('${image}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="absolute w-full h-full rounded-lg rotate-y-180"
         >
           <div className="absolute inset-0 bg-black opacity-50 rounded-md" />
           <div className="flex flex-col justify-center items-center h-full text-white p-4 gap-2">
